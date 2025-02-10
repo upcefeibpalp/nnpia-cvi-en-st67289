@@ -8,8 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GreetingController {
 
-    @Autowired
+
     private GreetingService greetingService = new GreetingService();
+
+    public GreetingController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
 
     @GetMapping("/")
     public String sayGreeting() {
